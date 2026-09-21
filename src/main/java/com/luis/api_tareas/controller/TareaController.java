@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +23,18 @@ public class TareaController {
     @GetMapping ("/tareas")
     public List<Tarea> listarTareas() {
         return tareas;
+    }
+
+    @GetMapping ("/tareas/{id}")
+    public Tarea buscarPorId(@PathVariable Long id) {
+        for (Tarea tarea : tareas) {
+            if (tarea.getId().equals(id)) {
+                return tarea;
+            }
+        }
+
+        throw new ResponseStatusException(
+            HttpStatus.NOT_FOUND, "No existe una tarea con id " + id);
     }
 
     @PostMapping ("/tareas")
