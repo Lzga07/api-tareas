@@ -1,0 +1,6 @@
+POST http://localhost:8080/tareas
+Content-Type: application/json
+
+{
+  "titulo": "Estudiar Spring"
+}
