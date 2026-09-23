@@ -1,6 +1,6 @@
-GET http://localhost:8080/tareas/999
+POST http://localhost:8080/tareas
 Content-Type: application/json
 
 {
-  "titulo": "Estudiar Apis"
+  "titulo": "Estudiar Spring"
 }

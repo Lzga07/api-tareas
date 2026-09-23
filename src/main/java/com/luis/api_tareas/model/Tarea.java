@@ -24,4 +24,12 @@ public class Tarea {
         return completada;
     }
 
+    public void setTitulo (String titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setCompletada(boolean completada) {
+        this.completada = completada;
+    }
+
 }
